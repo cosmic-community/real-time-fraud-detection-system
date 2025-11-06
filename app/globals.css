@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 219 100% 50%;
+    --primary-dark: 221 83% 53%;
+    --secondary: 271 81% 56%;
+    --secondary-dark: 263 70% 50%;
+    --danger: 0 84% 60%;
+    --danger-dark: 0 72% 51%;
+    --success: 158 64% 52%;
+    --success-dark: 163 94% 24%;
+    --warning: 38 92% 50%;
+    --warning-dark: 32 95% 44%;
+  }
+
+  body {
+    @apply bg-dark-300 text-gray-100;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-dark-200/50 backdrop-blur-xl border border-gray-800/50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
+  }
+
+  .glow-effect {
+    @apply relative before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-primary/20 before:to-secondary/20 before:blur-xl before:-z-10;
+  }
+
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-current animate-ping;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-current;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-dark-200/50 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full hover:bg-gray-600;
+  }
+
+  /* Map container styles */
+  .leaflet-container {
+    @apply rounded-xl overflow-hidden;
+    background: #0F172A !important;
+  }
+
+  .leaflet-tile {
+    filter: brightness(0.6) contrast(1.2) !important;
+  }
+
+  .leaflet-control-zoom {
+    @apply border-gray-700 !important;
+  }
+
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    @apply bg-dark-200 text-gray-100 border-gray-700 hover:bg-dark-100 !important;
+  }
+
+  /* Chart styles */
+  .recharts-text {
+    @apply fill-gray-400 text-xs;
+  }
+
+  .recharts-cartesian-grid-horizontal line,
+  .recharts-cartesian-grid-vertical line {
+    @apply stroke-gray-800;
+  }
+
+  .recharts-tooltip-wrapper {
+    @apply z-50;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
